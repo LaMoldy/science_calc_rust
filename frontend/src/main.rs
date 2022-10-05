@@ -2,8 +2,10 @@ pub mod components;
 
 use stylist::Style;
 use yew::prelude::*;
+
 use components::number_button::number_button::NumberButton;
 use components::operation_button::operation_button::OperationButton;
+use components::input_field::input_field::InputField;
 
 // Saves a file name
 const STYLE_FILE: &str = include_str!("main.css");
@@ -22,6 +24,7 @@ pub fn app() -> Html {
     html! {
         <div class={stylesheet}>
             <h1 class={"text-center"}>{"Scientific Calculator"}</h1>
+            <InputField />
             <div class={"flex-col"}>
                 <div class={"flex-row gap mb"}>
                     <NumberButton number="1" />
