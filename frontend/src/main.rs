@@ -20,30 +20,34 @@ fn main() {
 pub fn app() -> Html {
     // Makes a stylesheet
     let stylesheet: Style = Style::new(STYLE_FILE).unwrap();
+
+
+    let button_clicked = Callback::from(|button_value: String| println!("{}", button_value));
+
     // Returns HTML
     html! {
         <div class={stylesheet}>
             <h1 class={"text-center"}>{"Scientific Calculator"}</h1>
-            <InputField />
+            <InputField text="" />
             <div class={"flex-col"}>
                 <div class={"flex-row gap mb"}>
-                    <NumberButton number="1" />
-                    <NumberButton number="2" />
-                    <NumberButton number="3" />
+                    <NumberButton number="1" on_click={button_clicked} />
+                    <NumberButton number="2" on_click={button_clicked} />
+                    <NumberButton number="3" on_click={button_clicked} />
                 </div>
                 <div class={"flex-row gap mb"}>
-                    <NumberButton number="4" />
-                    <NumberButton number="5" />
-                    <NumberButton number="6" />
+                    <NumberButton number="4" on_click={button_clicked} />
+                    <NumberButton number="5" on_click={button_clicked} />
+                    <NumberButton number="6" on_click={button_clicked} />
                 </div>
                 <div class={"flex-row gap mb"}>
-                    <NumberButton number="7" />
-                    <NumberButton number="8" />
-                    <NumberButton number="9" />
+                    <NumberButton number="7" on_click={button_clicked} />
+                    <NumberButton number="8" on_click={button_clicked} />
+                    <NumberButton number="9" on_click={button_clicked} />
                 </div>
                 <div class={"flex-row gap mb"}>
-                    <NumberButton number="0" />
-                    <NumberButton number="." />
+                    <NumberButton number="0" on_click={button_clicked} />
+                    <NumberButton number="." on_click={button_clicked} />
                     <OperationButton bg="blue" operation="=" />
                 </div>
             </div>
